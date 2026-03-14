@@ -27,11 +27,10 @@ const main = async () => {
     const courses = await db
       .insert(schema.courses)
       .values([
-        { title: "Spanish", imageSrc: "/es.svg" },
+        { title: "Na v'i", imageSrc: "/NaVi.svg" },
       ])
       .returning();
 
-    // For each course, insert units
     for (const course of courses) {
       const units = await db
         .insert(schema.units)
@@ -42,12 +41,6 @@ const main = async () => {
             description: `Learn the basics of ${course.title}`,
             order: 1,
           },
-          {
-            courseId: course.id,
-            title: "Unit 2",
-            description: `Learn intermediate ${course.title}`,
-            order: 2,
-          },
         ])
         .returning();
 
@@ -56,10 +49,10 @@ const main = async () => {
         const lessons = await db
           .insert(schema.lessons)
           .values([
-            { unitId: unit.id, title: "Nouns", order: 1 },
-            { unitId: unit.id, title: "Verbs", order: 2 },
-            { unitId: unit.id, title: "Adjectives", order: 3 },
-            { unitId: unit.id, title: "Phrases", order: 4 },
+            { unitId: unit.id, title: "Greetings", order: 1 },
+            { unitId: unit.id, title: "Pronouns", order: 2 },
+            { unitId: unit.id, title: "I am / You are", order: 3 },
+            { unitId: unit.id, title: "Animals", order: 4 },
             { unitId: unit.id, title: "Sentences", order: 5 },
           ])
           .returning();
@@ -72,49 +65,49 @@ const main = async () => {
               {
                 lessonId: lesson.id,
                 type: "SELECT",
-                question: 'Which one of these is "the man"?',
+                question: 'How do you say "Hello"?',
                 order: 1,
               },
               {
                 lessonId: lesson.id,
                 type: "SELECT",
-                question: 'Which one of these is "the woman"?',
+                question: 'How can you translate "I see you"?',
                 order: 2,
               },
               {
                 lessonId: lesson.id,
                 type: "SELECT",
-                question: 'Which one of these is "the boy"?',
+                question: 'Which one of these you can translate as "Eywa is with you"?',
                 order: 3,
               },
               {
                 lessonId: lesson.id,
                 type: "ASSIST",
-                question: '"the man"',
+                question: 'Hello',
                 order: 4,
               },
               {
                 lessonId: lesson.id,
                 type: "SELECT",
-                question: 'Which one of these is "the zombie"?',
+                question: 'Translate: "Eywa is with you"',
                 order: 5,
               },
               {
                 lessonId: lesson.id,
                 type: "SELECT",
-                question: 'Which one of these is "the robot"?',
+                question: 'How to say "See you soon"?',
                 order: 6,
               },
               {
                 lessonId: lesson.id,
                 type: "SELECT",
-                question: 'Which one of these is "the girl"?',
+                question: 'How to translate: "Eywa ngahu"?',
                 order: 7,
               },
               {
                 lessonId: lesson.id,
                 type: "ASSIST",
-                question: '"the zombie"',
+                question: 'See you soon',
                 order: 8,
               },
             ])
@@ -127,23 +120,20 @@ const main = async () => {
                 {
                   challengeId: challenge.id,
                   correct: true,
-                  text: "el hombre",
-                  imageSrc: "/man.svg",
-                  audioSrc: "/es_man.mp3",
+                  text: "kaltxì",
+                  audioSrc: "/hello.mp3",
                 },
                 {
                   challengeId: challenge.id,
                   correct: false,
-                  text: "la mujer",
-                  imageSrc: "/woman.svg",
-                  audioSrc: "/es_woman.mp3",
+                  text: "Oel ngati kameie",
+                  audioSrc: "/oel-ngati-kameie.mp3",
                 },
                 {
                   challengeId: challenge.id,
                   correct: false,
-                  text: "el chico",
-                  imageSrc: "/boy.svg",
-                  audioSrc: "/es_boy.mp3",
+                  text: "Kiyevame",
+                  audioSrc: "/see-you-soon.mp3",
                 },
               ]);
             }
@@ -153,23 +143,20 @@ const main = async () => {
                 {
                   challengeId: challenge.id,
                   correct: true,
-                  text: "la mujer",
-                  imageSrc: "/woman.svg",
-                  audioSrc: "/es_woman.mp3",
+                  text: "Oel ngati kameie",
+                  audioSrc: "/oel-ngati-kameie.mp3",
                 },
                 {
                   challengeId: challenge.id,
                   correct: false,
-                  text: "el chico",
-                  imageSrc: "/boy.svg",
-                  audioSrc: "/es_boy.mp3",
+                  text: "Eywa ngahu",
+                  audioSrc: "/eywa-ngahu.mp3",
                 },
                 {
                   challengeId: challenge.id,
                   correct: false,
-                  text: "el hombre",
-                  imageSrc: "/man.svg",
-                  audioSrc: "/es_man.mp3",
+                  text: "kaltxì",
+                  audioSrc: "/hello.mp3",
                 },
               ]);
             }
@@ -179,23 +166,20 @@ const main = async () => {
                 {
                   challengeId: challenge.id,
                   correct: false,
-                  text: "la mujer",
-                  imageSrc: "/woman.svg",
-                  audioSrc: "/es_woman.mp3",
+                  text: "Oel ngati kameie",
+                  audioSrc: "/oel-ngati-kameie.mp3",
                 },
                 {
                   challengeId: challenge.id,
                   correct: false,
-                  text: "el hombre",
-                  imageSrc: "/man.svg",
-                  audioSrc: "/es_man.mp3",
+                  text: "Kiyevame",
+                  audioSrc: "/see-you-soon.mp3",
                 },
                 {
                   challengeId: challenge.id,
                   correct: true,
-                  text: "el chico",
-                  imageSrc: "/boy.svg",
-                  audioSrc: "/es_boy.mp3",
+                  text: "Eywa ngahu",
+                  audioSrc: "/eywa-ngahu.mp3",
                 },
               ]);
             }
@@ -205,20 +189,20 @@ const main = async () => {
                 {
                   challengeId: challenge.id,
                   correct: false,
-                  text: "la mujer",
-                  audioSrc: "/es_woman.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: true,
-                  text: "el hombre",
-                  audioSrc: "/es_man.mp3",
+                  text: "Oel ngati kameie",
+                  audioSrc: "/oel-ngati-kameie.mp3",
                 },
                 {
                   challengeId: challenge.id,
                   correct: false,
-                  text: "el chico",
-                  audioSrc: "/es_boy.mp3",
+                  text: "Eywa ngahu",
+                  audioSrc: "/eywa-ngahu.mp3",
+                },
+                {
+                  challengeId: challenge.id,
+                  correct: true,
+                  text: "kaltxì",
+                  audioSrc: "/hello.mp3",
                 },
               ]);
             }
@@ -227,24 +211,21 @@ const main = async () => {
               await db.insert(schema.challengeOptions).values([
                 {
                   challengeId: challenge.id,
-                  correct: false,
-                  text: "el hombre",
-                  imageSrc: "/man.svg",
-                  audioSrc: "/es_man.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "la mujer",
-                  imageSrc: "/woman.svg",
-                  audioSrc: "/es_woman.mp3",
-                },
-                {
-                  challengeId: challenge.id,
                   correct: true,
-                  text: "el zombie",
-                  imageSrc: "/zombie.svg",
-                  audioSrc: "/es_zombie.mp3",
+                  text: "Eywa ngahu",
+                  audioSrc: "/eywa-ngahu.mp3",
+                },
+                {
+                  challengeId: challenge.id,
+                  correct: false,
+                  text: "Oel ngati kameie",
+                  audioSrc: "/oel-ngati-kameie.mp3",
+                },
+                {
+                  challengeId: challenge.id,
+                  correct: false,
+                  text: "Kiyevame",
+                  audioSrc: "/see-you-soon.mp3",
                 },
               ]);
             }
@@ -253,24 +234,21 @@ const main = async () => {
               await db.insert(schema.challengeOptions).values([
                 {
                   challengeId: challenge.id,
+                  correct: false,
+                  text: "Oel ngati kameie",
+                  audioSrc: "/oel-ngati-kameie.mp3",
+                },
+                {
+                  challengeId: challenge.id,
                   correct: true,
-                  text: "el robot",
-                  imageSrc: "/robot.svg",
-                  audioSrc: "/es_robot.mp3",
+                  text: "Kiyevame",
+                  audioSrc: "/see-you-soon.mp3",
                 },
                 {
                   challengeId: challenge.id,
                   correct: false,
-                  text: "el zombie",
-                  imageSrc: "/zombie.svg",
-                  audioSrc: "/es_zombie.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "el chico",
-                  imageSrc: "/boy.svg",
-                  audioSrc: "/es_boy.mp3",
+                  text: "Eywa ngahu",
+                  audioSrc: "/eywa-ngahu.mp3",
                 },
               ]);
             }
@@ -279,24 +257,18 @@ const main = async () => {
               await db.insert(schema.challengeOptions).values([
                 {
                   challengeId: challenge.id,
+                  correct: false,
+                  text: "Hello",
+                },
+                {
+                  challengeId: challenge.id,
+                  correct: false,
+                  text: "how are you",
+                },
+                {
+                  challengeId: challenge.id,
                   correct: true,
-                  text: "la nina",
-                  imageSrc: "/girl.svg",
-                  audioSrc: "/es_girl.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "el zombie",
-                  imageSrc: "/zombie.svg",
-                  audioSrc: "/es_zombie.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "el hombre",
-                  imageSrc: "/man.svg",
-                  audioSrc: "/es_man.mp3",
+                  text: "Eywa is with you",
                 },
               ]);
             }
@@ -306,20 +278,20 @@ const main = async () => {
                 {
                   challengeId: challenge.id,
                   correct: false,
-                  text: "la mujer",
-                  audioSrc: "/es_woman.mp3",
+                  text: "Oel ngati kameie",
+                  audioSrc: "/oel-ngati-kameie.mp3",
                 },
                 {
                   challengeId: challenge.id,
                   correct: true,
-                  text: "el zombie",
-                  audioSrc: "/es_zombie.mp3",
+                  text: "Kiyevame",
+                  audioSrc: "/see-you-soon.mp3",
                 },
                 {
                   challengeId: challenge.id,
                   correct: false,
-                  text: "el chico",
-                  audioSrc: "/es_boy.mp3",
+                  text: "Eywa ngahu",
+                  audioSrc: "/eywa-ngahu.mp3",
                 },
               ]);
             }
