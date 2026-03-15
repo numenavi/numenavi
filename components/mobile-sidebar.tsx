@@ -5,11 +5,12 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet";
 import { Sidebar } from "@/components/sidebar";
-import { InfinityIcon, Menu } from "lucide-react";
+import { InfinityIcon, Loader, Menu } from "lucide-react";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import Image from "next/image";
+import { ClerkLoaded, ClerkLoading, UserButton } from "@clerk/nextjs";
 
 type Props = {
     hearts: number;
@@ -28,7 +29,7 @@ export const MobileSidebar = ({ points, hearts, hasActiveSubscription, streak }:
                 <SheetTitle>
                     <VisuallyHidden>Sidebar</VisuallyHidden>
                 </SheetTitle>
-                <Sidebar />
+                <Sidebar className="mt-5"/>
             </SheetContent>
             <div className="absolute left-0 right-0 top-0 flex items-center justify-end px-4 py-0.5">
                 <Link href="/quests">

@@ -120,7 +120,7 @@ const main = async () => {
                 {
                   challengeId: challenge.id,
                   correct: true,
-                  text: "kaltxì",
+                  text: "Kaltxì",
                   audioSrc: "/hello.mp3",
                 },
                 {
@@ -155,7 +155,7 @@ const main = async () => {
                 {
                   challengeId: challenge.id,
                   correct: false,
-                  text: "kaltxì",
+                  text: "Kaltxì",
                   audioSrc: "/hello.mp3",
                 },
               ]);
@@ -201,7 +201,7 @@ const main = async () => {
                 {
                   challengeId: challenge.id,
                   correct: true,
-                  text: "kaltxì",
+                  text: "Kaltxì",
                   audioSrc: "/hello.mp3",
                 },
               ]);
@@ -263,7 +263,7 @@ const main = async () => {
                 {
                   challengeId: challenge.id,
                   correct: false,
-                  text: "how are you",
+                  text: "How are you",
                 },
                 {
                   challengeId: challenge.id,

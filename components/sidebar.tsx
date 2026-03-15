@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -42,12 +44,12 @@ export const Sidebar = ({ className }: Props) => {
                 href={"/shop"} 
                 />
             </div>
-            <div className="p-4 z-200">
+            <div className="p-4 z-50">
             <ClerkLoading>
                 <Loader className="h-5 w-5 text-muted-foreground animate-spin" />
             </ClerkLoading>
             <ClerkLoaded>
-                <UserButton afterSignOutUrl="/"/>
+                <UserButton afterSignOutUrl="/" />
             </ClerkLoaded>
             </div>
         </div>

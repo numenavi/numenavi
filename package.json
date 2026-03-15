@@ -14,7 +14,7 @@
     "db:prod": "tsx ./scripts/prod.ts"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.37.1",
+    "@clerk/nextjs": "^6.39.0",
     "@neondatabase/serverless": "^1.0.2",
     "@radix-ui/react-slot": "^1.2.4",
     "class-variance-authority": "^0.7.1",
@@ -42,7 +42,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "drizzle-kit": "^0.31.8",
+    "drizzle-kit": "^0.18.1",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "pg": "^8.18.0",
