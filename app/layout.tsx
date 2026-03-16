@@ -24,18 +24,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body
-          className={`${font.variable} antialiased`}
-        >
+    <html lang="en">
+      <body
+        className={`${font.variable} antialiased`}
+      ><ClerkProvider>
           <Toaster />
           <ExitModal />
           <HeartModal />
           <PracticeModal />
           {children}
-        </body>
-      </html>
-    </ClerkProvider>
+        </ClerkProvider></body>
+    </html>
   );
 }

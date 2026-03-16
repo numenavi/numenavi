@@ -1,16 +1,15 @@
+import { Sidebar } from "@/components/sidebar";
 import {
     Sheet,
     SheetContent,
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet";
-import { Sidebar } from "@/components/sidebar";
-import { InfinityIcon, Loader, Menu } from "lucide-react";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { InfinityIcon, Menu } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import Image from "next/image";
-import { ClerkLoaded, ClerkLoading, UserButton } from "@clerk/nextjs";
 
 type Props = {
     hearts: number;
@@ -29,7 +28,7 @@ export const MobileSidebar = ({ points, hearts, hasActiveSubscription, streak }:
                 <SheetTitle>
                     <VisuallyHidden>Sidebar</VisuallyHidden>
                 </SheetTitle>
-                <Sidebar className="mt-5"/>
+                <Sidebar className="mt-5" />
             </SheetContent>
             <div className="absolute left-0 right-0 top-0 flex items-center justify-end px-4 py-0.5">
                 <Link href="/quests">
@@ -41,22 +40,22 @@ export const MobileSidebar = ({ points, hearts, hasActiveSubscription, streak }:
                 <Link href="/shop">
                     <Button variant="ghostTrans" className={hasActiveSubscription ? "text-gradient-to-b from-[#60A5FA] to-[#7C3AED]" : "text-blue-200"}>
                         <Image src={hasActiveSubscription ? "/heart-premium.svg" : "/heart.svg"} height={22} width={22} alt="Hearts" className="mr-2" />
-                        {hasActiveSubscription 
-                        ? <InfinityIcon className="h-4 w-4 stroke-3" /> 
-                        : hearts
+                        {hasActiveSubscription
+                            ? <InfinityIcon className="h-4 w-4 stroke-3" />
+                            : hearts
                         }
                     </Button>
                 </Link>
                 <Link href="/learn">
                     <Button variant="ghostTrans" className="text-rose-200">
                         <Image src={
-                                streak > 0 ? "/fire.svg"
+                            streak > 0 ? "/fire.svg"
                                 : "/fire_0.svg"
-                            }
-                            height={28} 
-                            width={28} 
-                            alt="Fire" 
-                            className="mr-2" 
+                        }
+                            height={28}
+                            width={28}
+                            alt="Fire"
+                            className="mr-2"
                         />
                         {streak}
                     </Button>

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ClerkLoaded, ClerkLoading, SignedIn, SignedOut, SignUpButton, SignInButton } from "@clerk/nextjs";
+import { ClerkLoaded, ClerkLoading, Show, SignUpButton, SignInButton } from "@clerk/nextjs";
 import { Loader } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,7 +19,7 @@ return (
           <Loader className="h-5 w-5 text-muted-foreground animate-spin" />
         </ClerkLoading>
         <ClerkLoaded>
-          <SignedOut>
+          <Show when="signed-out">
             <SignUpButton mode="modal" fallbackRedirectUrl="/learn">
               <Button size="lg" variant="secondary" className="w-full">
                 Get Started
@@ -30,14 +30,14 @@ return (
                 I already have an account
               </Button>
             </SignInButton>
-          </SignedOut>
-          <SignedIn>
+          </Show>
+          <Show when="signed-in">
             <Button size="lg" variant="secondary" className="w-full" asChild>
               <Link href="/learn">
                 Continue Learning
               </Link>
             </Button>
-          </SignedIn>
+          </Show>
         </ClerkLoaded>
           <Button size="lg" variant="secondaryOutline" className="w-full">
             <Link href="/credits">
@@ -47,5 +47,5 @@ return (
       </div>
     </div>
   </div>
-)
+);
 }
